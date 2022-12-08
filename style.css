@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+* {
+  margin: 0;
+  font-family: Inter;
+}
+
+main {
+  padding-left: 0.7rem;
+}
+
+textarea {
+  outline: none;
+  width: 97vw;
+  height: 80vh;
+  border: none;
+  resize: none;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 40px;
+  padding-bottom: 0.8rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #E5E7EBFF;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+p {
+  color: #515965FF;
+}
+
+main > p {
+  margin-bottom: 1.5rem;
+}
+
+.popup {
+  display: none;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  padding: 1.3rem 0;
+  position: absolute;
+  top: 165px;
+}
+
+.popup-header {
+  padding: 0 1.3rem;
+}
+
+.header-active {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.popup-header > * {
+  padding-bottom: 0.5rem;
+}
+
+.selection {
+  display: flex;
+  align-items: center;
+}
+
+.selection:hover {
+  background-color: #F3F4F6FF;
+}
+
+.T-text {
+  padding: 1.3rem;
+  scale: 2;
+  color: #9DA3AEFF;
+}
