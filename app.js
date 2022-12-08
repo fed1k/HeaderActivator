@@ -47,4 +47,6 @@ input.addEventListener('input', (e)=>{
       }
     })
   }
+
+  if(e.target.value === "") popup.style.display = "none"
 });
