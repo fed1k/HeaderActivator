@@ -81,7 +81,7 @@ nav span {
 
 textarea {
   outline: none;
-  height: 45vh;
+  height: 30vh;
   border: none;
   resize: none;
   font-size: 16px;
@@ -134,8 +134,7 @@ main > p {
   flex-direction: column;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   padding: 1.3rem 0;
-  position: absolute;
-  top: 80%;
+  translate: 0 -25vh
 }
 
 .popup-header {

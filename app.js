@@ -30,7 +30,7 @@ const createH1Text = () => {
 
 // Initialiaze input event
 input.addEventListener('input', (e)=>{
-  if(e.target.value === "/") {
+  if(e.target.value.includes("/")) {
     openPopup()
     input.addEventListener('keydown', (e)=>{
       if(e.key === 'Escape') {
@@ -39,7 +39,7 @@ input.addEventListener('input', (e)=>{
     })
   } 
 
-  if(e.target.value === "/1") {
+  if(e.target.value.includes("/1")) {
     createH1Text()
     input.addEventListener('keypress', (e)=> {
       if(e.key === 'Enter') {
