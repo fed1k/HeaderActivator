@@ -12,9 +12,11 @@ const openPopup = ()=> {
 
 // Deactive header style
 const changeBack = () => {
-  const createdHeader = document.createElement('h2');
-  createdHeader.textContent = input.value
-  input.parentElement.insertBefore(createdHeader, input)
+  if(input.value && input.placeholder === "Heading 1 (esc to cancel)") {
+    const createdHeader = document.createElement('h2');
+    createdHeader.textContent = input.value
+    input.parentElement.insertBefore(createdHeader, input)
+  }
   input.value = ""
   input.placeholder = "Type / for blocks, @ to link docs or people";
   input.classList.remove('header-active')
@@ -24,8 +26,15 @@ const changeBack = () => {
 const createH1Text = () => {
   popup.style.display = "none"
   input.value = null
-  input.placeholder = "Heading 1"
+  input.placeholder = "Heading 1 (esc to cancel)"
   input.classList.add('header-active')
+  input.addEventListener('keydown', (e)=>{
+    if(e.key === "Escape") {
+      changeBack()
+      const emptyH2 = document.querySelector('h2')
+      main.removeChild(emptyH2)
+    }
+  })
 }
 
 // Initialiaze input event

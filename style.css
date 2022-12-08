@@ -10,14 +10,13 @@ main {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  /* overflow-x: hidden; */
+  min-height: 75vh;
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  /* translate: -70vw; */
 }
 
 .time-icon-container {
@@ -81,7 +80,7 @@ nav span {
 
 textarea {
   outline: none;
-  height: 30vh;
+  height: 13vh;
   border: none;
   resize: none;
   font-size: 16px;
@@ -134,7 +133,7 @@ main > p {
   flex-direction: column;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   padding: 1.3rem 0;
-  translate: 0 -25vh
+  translate: 0 -5vh
 }
 
 .popup-header {
