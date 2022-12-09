@@ -1,5 +1,5 @@
 // References
-const input = document.querySelector('textarea');
+const input = document.querySelector('input');
 const popup = document.querySelector('.popup')
 const main = document.querySelector('main')
 
@@ -14,10 +14,17 @@ const openPopup = ()=> {
 const changeBack = () => {
   if(input.value && input.placeholder === "Heading 1 (esc to cancel)") {
     const createdHeader = document.createElement('h2');
+    createdHeader.style.color = "#212936FF"
+    const editIcon = document.createElement('span');
+    editIcon.className = "material-symbols-outlined";
+    editIcon.textContent = "menu"
     createdHeader.textContent = input.value
-    input.parentElement.insertBefore(createdHeader, input)
+    const headerContainer = document.createElement('div');
+    headerContainer.append(editIcon, createdHeader);
+    headerContainer.classList.add('edit')
+    input.parentElement.insertBefore(headerContainer, input)
   }
-  input.value = ""
+  input.value = null
   input.placeholder = "Type / for blocks, @ to link docs or people";
   input.classList.remove('header-active')
 }
@@ -46,13 +53,14 @@ input.addEventListener('input', (e)=>{
         popup.style.display = "none"
       }
     })
-  } 
+  }
 
   if(e.target.value.includes("/1")) {
     createH1Text()
     input.addEventListener('keypress', (e)=> {
       if(e.key === 'Enter') {
         changeBack()
+        console.log(e)
       }
     })
   }
