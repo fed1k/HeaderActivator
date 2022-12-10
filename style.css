@@ -93,7 +93,7 @@ nav span {
   padding-left: 0.5rem;
 }
 
-input {
+textarea {
   outline: none;
   height: 13vh;
   border: none;
@@ -148,7 +148,8 @@ main > p {
   flex-direction: column;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
   padding: 1.3rem 0;
-  translate: 0 -5vh
+  translate: 0 -5vh;
+  align-self: flex-start;
 }
 
 .popup-header {
