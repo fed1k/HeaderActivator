@@ -16,6 +16,7 @@ const edit = (createdHeader) => {
   editInput.className = "editInput";
   createdHeader.replaceWith(editInput)
   editInput.defaultValue = createdHeader.textContent
+  editInput.setSelectionRange(createdHeader.textContent.length, createdHeader.textContent.length)
   editInput.focus()
   editInput.addEventListener('keydown', (e)=>{
     if(e.key === "Enter" && e.target.value){
@@ -46,7 +47,6 @@ const changeBack = () => {
       edit(createdHeader)
     })
   }
-  input.value = null
   input.placeholder = "Type / for blocks, @ to link docs or people";
   input.classList.remove('header-active')
 }
@@ -70,8 +70,8 @@ const createH1Text = () => {
 input.addEventListener('input', (e)=>{
   if(e.target.value.includes("/")) {
     openPopup()
-    input.addEventListener('keydown', (e)=>{
-      if(e.key === 'Escape') {
+    input.addEventListener('keydown', (event)=>{
+      if(event.key === 'Escape') {
         popup.style.display = "none"
       }
     })
@@ -80,14 +80,14 @@ input.addEventListener('input', (e)=>{
   if(e.target.value.includes("/1")) {
     createH1Text()
     input.addEventListener('keypress', (event)=> {
-      if(event.key === 'Enter') {
-        event.preventDefault()
+      if(event.key === 'Enter' && input.value && input.placeholder === "Heading 1 (esc to cancel)" ) {
         changeBack()
+        event.preventDefault()
+        input.value = null
       }
     })
 
   }
-  
 
   if(e.target.value === "") popup.style.display = "none"
 });
