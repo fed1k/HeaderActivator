@@ -16,6 +16,7 @@ const edit = (createdHeader) => {
   editInput.className = "editInput";
   createdHeader.replaceWith(editInput)
   editInput.defaultValue = createdHeader.textContent
+  editInput.focus()
   editInput.addEventListener('keydown', (e)=>{
     if(e.key === "Enter" && e.target.value){
       editInput.replaceWith(createdHeader)
