@@ -120,6 +120,14 @@ footer {
   gap: 0.4rem;
 }
 
+.editInput {
+  border: none;
+  color: rgb(33, 41, 54);
+  font-size: 26px;
+  outline: none;
+  font-weight: bold;
+}
+
 .nav-right-side span:nth-child(2) {
   padding-right: 1rem;
 }

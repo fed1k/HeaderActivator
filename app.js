@@ -10,23 +10,26 @@ const openPopup = ()=> {
   selection.style.backgroundColor = "#F3F4F6FF"
 }
 
+// Edit created h1 text
 const edit = (createdHeader) => {
-  input.value = createdHeader.textContent
-  input.focus()
-  input.classList.add('header-active')
-  input.placeholder = "Edit Header 1"
-  input.addEventListener('keydown', (e)=>{
-    if(e.key === "Enter" && e.target.value && input.placeholder === "Edit Header 1") createdHeader.textContent = input.value
+  const editInput = document.createElement('input');
+  editInput.className = "editInput";
+  createdHeader.replaceWith(editInput)
+  editInput.defaultValue = createdHeader.textContent
+  editInput.addEventListener('keydown', (e)=>{
+    if(e.key === "Enter" && e.target.value){
+      editInput.replaceWith(createdHeader)
+      createdHeader.textContent = e.target.value
+    } 
       
     if(e.key === 'Escape') {
-      input.classList.remove('header-active')
-      input.value = null
+      editInput.replaceWith(createdHeader)
     }
   })
 }
 
 // Deactive header style
-const changeBack = (event) => {
+const changeBack = () => {
   if(input.value && input.placeholder === "Heading 1 (esc to cancel)") {
     const createdHeader = document.createElement('h2');
     createdHeader.style.color = "#212936FF"
@@ -38,11 +41,11 @@ const changeBack = (event) => {
     headerContainer.append(editIcon, createdHeader);
     headerContainer.classList.add('edit')
     input.parentElement.insertBefore(headerContainer, input)
-    editIcon.addEventListener('click', ()=>{ 
+    editIcon.addEventListener('click', ()=>{
       edit(createdHeader)
     })
-    input.value = null
   }
+  input.value = null
   input.placeholder = "Type / for blocks, @ to link docs or people";
   input.classList.remove('header-active')
 }
@@ -73,19 +76,17 @@ input.addEventListener('input', (e)=>{
     })
   }
 
-  
-
-  if(e.target.value.includes('/1') && !e.target.value.startsWith('/1')) console.log(e.target.value.slice(0, -2));
-
   if(e.target.value.includes("/1")) {
     createH1Text()
     input.addEventListener('keypress', (event)=> {
       if(event.key === 'Enter') {
-        changeBack(event)
+        event.preventDefault()
+        changeBack()
       }
     })
+
   }
+  
 
   if(e.target.value === "") popup.style.display = "none"
 });
-
